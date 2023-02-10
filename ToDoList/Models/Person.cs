@@ -4,7 +4,7 @@ namespace ToDoList.Models
 {
     public class Person
     {
-        public int? ID { get; set; }
+        public long Id { get; set; }
         [NotMapped] //Tablodaki alanla eşleştirmez
         public string Fullname => $"{FirstName} {LastName}"; //Interpolation
         public string? FirstName { get; set; }

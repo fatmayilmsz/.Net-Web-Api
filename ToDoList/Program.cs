@@ -6,12 +6,16 @@ using static System.Net.Mime.MediaTypeNames;
 var builder = WebApplication.CreateBuilder(args);
 builder.Services.AddCors(options =>
 {
+    //Cors
     options.AddPolicy(name: "default_cors",
             policy =>
             {
-            policy.WithOrigins("Access-Control-Allow-Headers", "*");
+                policy.AllowAnyOrigin()
+                    .AllowAnyHeader()
+                    .AllowAnyMethod();
             });
 });
+
 
 // Add services to the container.
 
@@ -32,6 +36,8 @@ if (app.Environment.IsDevelopment())
 }
 
 app.UseHttpsRedirection();
+
+//Use Cors
 app.UseCors("default_cors");
 
 app.UseAuthorization();

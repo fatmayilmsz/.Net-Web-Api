@@ -16,21 +16,22 @@ namespace ToDoList.Controllers
             _context= todocontext;
         }
 
-        [HttpGet("{id:int}")]
-        public IActionResult Find(int id)
+        [HttpGet]
+        public IActionResult Find()
         {
-            return Ok(_context.Persons.ToList());
+            var persons = _context.Persons.ToList();
+            return Ok(persons);
         }
        
         [HttpPost]
-        public IActionResult Post(Person person) 
+        public IActionResult Post([FromBody] Person person) 
         {
             if (!ModelState.IsValid)
                 return BadRequest("Invalid data.");
 
             _context.Persons.Add(new Person()
            {
-               ID= person.ID,
+               Id = person.Id,
                FirstName= person.FirstName,
                LastName= person.LastName,
            });
@@ -39,12 +40,12 @@ namespace ToDoList.Controllers
         }
 
         [HttpPut]
-        public IActionResult Put(Person person)
+        public IActionResult Put([FromBody]Person person)
         {
             if (!ModelState.IsValid)
                 return BadRequest("Not a valid model");
-            var existingPerson = _context.Persons.Where(p => p.ID == person.ID).FirstOrDefault<Person>();
-            if(existingPerson != null)
+            var existingPerson = _context.Persons.Where(p => p.Id == person.Id).FirstOrDefault<Person>();
+            if(existingPerson is not null)
             {
                 existingPerson.FirstName = person.FirstName;
                 existingPerson.LastName = person.LastName;
@@ -57,14 +58,14 @@ namespace ToDoList.Controllers
             return Ok();
         }
 
-        [HttpDelete] 
+        [HttpDelete("{id:int}")] 
         public IActionResult Delete(int id)
         {
-            if (id <= 0)
+            if (id < 0)
             {
                 return BadRequest("Not a valid person id");
             }
-            var personn = _context.Persons.Where(p => p.ID == id).FirstOrDefault();
+            var personn = _context.Persons.Where(p => p.Id == id).FirstOrDefault();
 
             if (personn is null)
             {
