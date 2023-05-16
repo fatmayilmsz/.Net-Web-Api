@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "JQLH3MIO88aomFZWR+Rnn50D0AiAAceWpayU0T2gsLFAiPUK9mo811XrHKXGsbEZEqBQ50cf2iEdTetsm10vog==",
+  "dgSpecHash": "fy/EqseiDPLZedw/I+bZAs9G7aljCHeYaHZd/Y+Fp9FSU2zNLe2wJc+zKzW66EUrYJYMSAHtRdMrcxhFTmiPbQ==",
   "success": true,
-  "projectFilePath": "C:\\Users\\FATMA YILMAZ\\source\\repos\\ToDoList\\ToDoList\\ToDoList.csproj",
+  "projectFilePath": "C:\\Users\\FATMA YILMAZ\\OneDrive\\Belgeler\\GitHub\\.Net-Web-Api\\ToDoList\\ToDoList.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\FATMA YILMAZ\\.nuget\\packages\\azure.core\\1.24.0\\azure.core.1.24.0.nupkg.sha512",
     "C:\\Users\\FATMA YILMAZ\\.nuget\\packages\\azure.identity\\1.6.0\\azure.identity.1.6.0.nupkg.sha512",
